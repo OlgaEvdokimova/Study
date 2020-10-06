@@ -12,6 +12,10 @@ public class Account {
     private class Withdraw implements Operable {
         int money;
 
+        public Withdraw(int money) {
+            this.money = money;
+        }
+
         public int getMoney() {
             return money;
         }
@@ -33,6 +37,10 @@ public class Account {
 
     private class Payment implements Operable {
         int money;
+
+        public Payment(int money) {
+            this.money = money;
+        }
 
         public int getMoney() {
             return money;
@@ -56,6 +64,10 @@ public class Account {
     private class Income implements Operable {
         int money;
 
+        public Income(int money) {
+            this.money = money;
+        }
+
         public int getMoney() {
             return money;
         }
@@ -76,20 +88,17 @@ public class Account {
     }
 
     public void addWithdraw(int money) {
-        Withdraw withdraw = new Withdraw();
-        withdraw.setMoney(money);
+        Withdraw withdraw = new Withdraw(money);
         operables.add(withdraw);
     }
 
     public void addIncome(int money) {
-        Income income = new Income();
-        income.setMoney(money);
+        Income income = new Income(money);
         operables.add(income);
     }
 
     public void addPayment(int money) {
-        Payment payment = new Payment();
-        payment.setMoney(money);
+        Payment payment = new Payment(money);
         operables.add(payment);
     }
 
