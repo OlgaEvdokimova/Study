@@ -1,0 +1,104 @@
+package com.company.taskAccount;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Account {
+    private Withdraw withdraw;
+    private Payment payment;
+    private Income income;
+    private List<Operable> operables = new ArrayList<>();
+
+    private class Withdraw implements Operable {
+        int money;
+
+        public int getMoney() {
+            return money;
+        }
+
+        public void setMoney(int money) {
+            this.money = money;
+        }
+
+        @Override
+        public void view() {
+            System.out.println(getMoney());
+        }
+
+        @Override
+        public String toString() {
+            return "Withdraw: " + money;
+        }
+    }
+
+    private class Payment implements Operable {
+        int money;
+
+        public int getMoney() {
+            return money;
+        }
+
+        public void setMoney(int money) {
+            this.money = money;
+        }
+
+        @Override
+        public void view() {
+            System.out.println(getMoney());
+        }
+
+        @Override
+        public String toString() {
+            return "Payment: " + money;
+        }
+    }
+
+    private class Income implements Operable {
+        int money;
+
+        public int getMoney() {
+            return money;
+        }
+
+        public void setMoney(int money) {
+            this.money = money;
+        }
+
+        @Override
+        public void view() {
+            System.out.println(getMoney());
+        }
+
+        @Override
+        public String toString() {
+            return "Income: " + money ;
+        }
+    }
+
+    public void addWithdraw(int money) {
+        Withdraw withdraw = new Withdraw();
+        withdraw.setMoney(money);
+        operables.add(withdraw);
+    }
+
+    public void addIncome(int money) {
+        Income income = new Income();
+        income.setMoney(money);
+        operables.add(income);
+    }
+
+    public void addPayment(int money) {
+        Payment payment = new Payment();
+        payment.setMoney(money);
+        operables.add(payment);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        for (Operable o : operables){
+            sb.append(o).append("\n");
+        }
+        return sb.toString();
+    }
+}
