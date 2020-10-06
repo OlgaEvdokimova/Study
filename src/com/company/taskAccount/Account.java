@@ -22,7 +22,7 @@ public class Account {
 
         @Override
         public void view() {
-            System.out.println(getMoney());
+            System.out.println("Withdraw: " + getMoney());
         }
 
         @Override
@@ -44,7 +44,7 @@ public class Account {
 
         @Override
         public void view() {
-            System.out.println(getMoney());
+            System.out.println("Payment: " + getMoney());
         }
 
         @Override
@@ -66,7 +66,7 @@ public class Account {
 
         @Override
         public void view() {
-            System.out.println(getMoney());
+            System.out.println("Income: " + getMoney());
         }
 
         @Override
@@ -91,6 +91,12 @@ public class Account {
         Payment payment = new Payment();
         payment.setMoney(money);
         operables.add(payment);
+    }
+
+    public void view(){
+        for (Operable o : operables){
+            o.view();
+        }
     }
 
     @Override

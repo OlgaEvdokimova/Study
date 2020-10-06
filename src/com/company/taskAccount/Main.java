@@ -9,6 +9,6 @@ public class Main {
         account.addIncome(200);
         account.addIncome(200);
         account.addWithdraw(100);
-        System.out.println(account);
+        account.view();
     }
 }
