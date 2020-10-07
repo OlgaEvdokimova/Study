@@ -19,15 +19,32 @@ public class Poster {
         this.cinemas = cinemas;
     }
 
-    public List<Cinema.Film> getFilmByName(String name) {
+    public String getFilmByName(String name) {
         List<Cinema.Film> filmList = new ArrayList<>();
         for (Cinema c : cinemas){
             if (c.getName().equals(name)){
                 filmList =  c.getFilms();
             }
         }
-        return filmList;
+        StringBuilder sb = new StringBuilder();
+        for (Cinema.Film f : filmList){
+            sb.append(f);
+        }
+        return sb.toString();
     }
+
+    public String getCinemaByFilm(String nameOfFilm) {
+        StringBuilder sb = new StringBuilder();
+        for (Cinema c : cinemas){
+            for (Cinema.Film f : c.getFilms()) {
+                if (f.getName().equals(nameOfFilm)) {
+                    sb.append(c.getName()).append("\n");
+                }
+            }
+        }
+        return sb.toString();
+    }
+
 
     @Override
     public String toString() {
@@ -37,4 +54,6 @@ public class Poster {
         }
         return sb.toString();
     }
+
+
 }

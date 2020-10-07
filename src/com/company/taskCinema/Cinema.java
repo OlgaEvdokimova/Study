@@ -7,6 +7,7 @@ public class Cinema {
     private Address address;
     private List<Film> films;
 
+
     public Cinema(String name, Address address, List<Film> films) {
         this.name = name;
         this.address = address;

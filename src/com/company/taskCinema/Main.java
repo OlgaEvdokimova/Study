@@ -61,5 +61,6 @@ public class Main {
         Poster poster = new Poster(cinemas);
         System.out.println(poster);
         System.out.println(poster.getFilmByName("\"Октябрь\""));
+        System.out.println(poster.getCinemaByFilm("Форсаж"));
     }
 }
