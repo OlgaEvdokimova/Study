@@ -11,18 +11,23 @@ public class Main {
      */
     public static void main(String[] args) {
 
-        List<String> time = new ArrayList<>(){
+        List<String> time1 = new ArrayList<>(){
             {
                 add("13:50");
                 add("17:50");
+            }
+        };
+        List<String> time2 = new ArrayList<>(){
+            {
                 add("11:50");
                 add("20:00");
             }
         };
-        Cinema.Film film1 = new Cinema.Film("Форсаж", time);
-        Cinema.Film film2 = new Cinema.Film("ЛюдиХ", time);
-        Cinema.Film film3 = new Cinema.Film("Незваные", time);
-        Cinema.Film film4 = new Cinema.Film("Лунтик", time);
+
+        Cinema.Film film1 = new Cinema.Film("Форсаж", time1);
+        Cinema.Film film2 = new Cinema.Film("ЛюдиХ", time2);
+        Cinema.Film film3 = new Cinema.Film("Незваные", time1);
+        Cinema.Film film4 = new Cinema.Film("Лунтик", time2);
         List<Cinema.Film> filmsSov = new ArrayList<>(){
             {
                 add(film1);
@@ -30,7 +35,7 @@ public class Main {
 
             }
         };
-        Cinema cinemaSov = new Cinema(Cinema.Address.SOVETSKAYA, filmsSov);
+        Cinema cinemaSov = new Cinema("\"им. Калинина\"", Cinema.Address.SOVETSKAYA, filmsSov);
 
         List<Cinema.Film> filmsBel = new ArrayList<>(){
             {
@@ -38,7 +43,7 @@ public class Main {
                 add(film3);
             }
         };
-        Cinema cinemaBelitsa = new Cinema(Cinema.Address.BELITSA, filmsBel);
+        Cinema cinemaBelitsa = new Cinema("\"Мир\"", Cinema.Address.BELITSA, filmsBel);
 
         List<Cinema.Film> filmsOkt = new ArrayList<>(){
             {
@@ -46,7 +51,7 @@ public class Main {
                 add(film4);
             }
         };
-        Cinema cinemaOkt = new Cinema(Cinema.Address.OKTYABR, filmsOkt);
+        Cinema cinemaOkt = new Cinema("\"Октябрь\"", Cinema.Address.OKTYABR, filmsOkt);
 
         List<Cinema> cinemas = new ArrayList<>(){{
             add(cinemaSov);
@@ -55,5 +60,6 @@ public class Main {
         }};
         Poster poster = new Poster(cinemas);
         System.out.println(poster);
+        System.out.println(poster.getFilmByName("\"Октябрь\""));
     }
 }

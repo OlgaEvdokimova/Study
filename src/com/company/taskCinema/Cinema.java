@@ -3,15 +3,41 @@ package com.company.taskCinema;
 import java.util.List;
 
 public class Cinema {
-
+    private String name;
     private Address address;
     private List<Film> films;
 
-    public Cinema(Address address, List<Film> films) {
+    public Cinema(String name, Address address, List<Film> films) {
+        this.name = name;
         this.address = address;
         this.films = films;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
+    public List<Film> getFilms() {
+        return films;
+    }
+
+    public void setFilms(List<Film> films) {
+        this.films = films;
+    }
+
+//Внутренний класс Фильм
     public static class Film {
         private String name;
         private List<String> time;
@@ -42,8 +68,8 @@ public class Cinema {
         @Override
         public String toString() {
             StringBuilder sb = new StringBuilder();
-            sb.append(name);
-            sb.append("Time: ");
+            sb.append(name).append(" ");
+            sb.append("Время сеансов: ");
             for (String t : time) {
                 sb.append(t).append("; ");
             }
@@ -53,7 +79,7 @@ public class Cinema {
     }
 
     enum Address {
-        SOVETSKAYA("ул.Советская"), BELITSA("Белица"), OKTYABR("пр-т Октября");
+        SOVETSKAYA("Гомель, ул.Советская"), BELITSA("Гомель, Белица"), OKTYABR("Гомель, пр-т Октября");
 
         String address;
 
@@ -71,16 +97,18 @@ public class Cinema {
 
         @Override
         public String toString() {
-            return "Address: " + address + " ";
+            return ". " + address;
         }
     }
+
+
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Cinema: ").append(address).append("\n");
+        sb.append("Кинотеатр ").append(name).append(address).append("\n");
         for (Film f : films) {
-            sb.append("Film: ").append(f);
+            sb.append("Фильм: ").append(f);
         }
         sb.append("\n");
         return sb.toString();
